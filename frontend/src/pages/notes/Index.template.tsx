@@ -5,10 +5,12 @@ import SidebarButton from "../SidebarButton";
 import { FiLogOut } from "react-icons/fi";
 import { NoteListProps } from "@/apis/note";
 import { Outlet } from "react-router-dom";
+import { Note } from "../../apis/note";
 export interface NotesIndexTemplateProps extends NoteListProps {
   currentUserMail: string;
   onClickLogout(): void;
   onClickCreateNote(): void;
+  notes: Note[];
 }
 
 export const NotesIndexTemplate = (props: NotesIndexTemplateProps) => {
