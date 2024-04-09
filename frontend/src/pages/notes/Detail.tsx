@@ -2,14 +2,22 @@ import NoteContentEditor from "@/components/NoteContentEditor";
 import NoteTitleInput from "@/components/NoteTitleInput";
 import DetailButton from "./DetailButton";
 import { withCurrentNote } from "@/components/hocs/withCurrentNote";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
+import { updateNote } from "../../apis/note";
 const Detail = withCurrentNote(({ currentNote }) => {
   const [title, setTitle] = useState(currentNote.title);
   const [content, setContet] = useState(currentNote.content);
 
-  const handleSave = () => {
+  useEffect(() => {
+    setTitle(currentNote.title);
+    setContet(currentNote.content);
+  }, [currentNote]);
+  const handleSave = async () => {
     console.log(title, content);
+    await updateNote({ id: currentNote.id, title, content });
+    console.log(currentNote);
+    alert("저장되었습니다");
   };
   return (
     <div className="flex-grow w-auto h-full">

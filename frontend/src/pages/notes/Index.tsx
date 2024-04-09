@@ -4,7 +4,7 @@ import { withAuthenticatedUser } from "@/components/hocs/withAuthenticatedUser";
 import { useNavigate } from "react-router-dom";
 import { useNotes } from "@/hooks/useNotes";
 import React from "react";
-import { Note } from "../../apis/note";
+import { createNote } from "../../apis/note";
 
 export const NotesIndexPage = withAuthenticatedUser((props) => {
   const { logout } = useLogout();
@@ -15,7 +15,10 @@ export const NotesIndexPage = withAuthenticatedUser((props) => {
     alert("로그아웃 되었습니다.");
     navigate("/");
   };
-
+  const handleClickCreateNote = async () => {
+    const note = await createNote({ title: "", content: "" });
+    navigate(`/notes/${note.id}`);
+  };
   const { notes } = useNotes();
   if (!notes) {
     return null;
@@ -25,9 +28,7 @@ export const NotesIndexPage = withAuthenticatedUser((props) => {
     <NotesIndexTemplate
       notes={notes}
       currentUserMail={props.currentUser.email}
-      onClickCreateNote={() => {
-        console.log("node");
-      }}
+      onClickCreateNote={handleClickCreateNote}
       onClickLogout={handleLogout}
     />
   );

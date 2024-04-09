@@ -35,6 +35,7 @@ const createNote = async (params: CreateNoteParams) => {
   return data;
 };
 const updateNote = async ({ id, ...params }: UpdateNoteParams) => {
+  console.log(params);
   const { data } = await httpClient.put<Note>(`/notes/${id}`, params);
   return data;
 };

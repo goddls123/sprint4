@@ -10,7 +10,6 @@ export interface NotesIndexTemplateProps extends NoteListProps {
   currentUserMail: string;
   onClickLogout(): void;
   onClickCreateNote(): void;
-  notes: Note[];
 }
 
 export const NotesIndexTemplate = (props: NotesIndexTemplateProps) => {
