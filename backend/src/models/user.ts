@@ -16,6 +16,7 @@ import jwt from "jsonwebtoken";
 
 export const join = async (req: Request, res: Response) => {
   const { email, password } = req.body;
+  console.log(email, password);
   const bcryptSaltRounds: number = 10;
   const salt = await bcrypt.genSalt(bcryptSaltRounds);
   const hashPassword = await bcrypt.hash(password, salt);
@@ -24,6 +25,7 @@ export const join = async (req: Request, res: Response) => {
   let sql = "INSERT INTO users (email,password) VALUES (?,?)";
 
   conn.query(sql, values, (err, results: ResultSetHeader) => {
+    console.log(err, results);
     if (err && err.code === "ER_DUP_ENTRY") {
       return res
         .status(StatusCodes.CONFLICT)
