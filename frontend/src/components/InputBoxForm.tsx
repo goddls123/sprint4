@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
-import { LoginProps } from './LoginForm';
-import {
-  FieldError,
-  FieldErrors,
-  UseFormGetValues,
-  UseFormRegister,
-} from 'react-hook-form';
-import { JoinFormProps } from './JoinForm';
+import React from "react";
 
-type Input = 'email' | 'password' | 'checkPassword';
+import { FieldError, UseFormGetValues, UseFormRegister } from "react-hook-form";
+import { JoinFormProps } from "./JoinForm";
+
+type Input = "email" | "password" | "checkPassword";
 interface Props {
   type: Input;
   register: UseFormRegister<JoinFormProps>;
@@ -18,12 +13,12 @@ interface Props {
 const InputBoxForm = ({ type, register, getValues, errors }: Props) => {
   return (
     <>
-      <div className='relative flex items-center my-2'>
+      <div className="relative flex items-center my-2">
         <input
           id={type}
-          type={type === 'checkPassword' ? 'password' : type}
+          type={type === "checkPassword" ? "password" : type}
           className={`peer border-2  focus:outline-none rounded w-full h-11 p-2 ${
-            getValues(type) ? 'border-blue-600' : 'border-zinc-500'
+            getValues(type) ? "border-blue-600" : "border-zinc-500"
           }`}
           {...register(type, { required: true })}
         />
@@ -31,16 +26,16 @@ const InputBoxForm = ({ type, register, getValues, errors }: Props) => {
           htmlFor={type}
           className={`absolute duration-200 uppercase left-2 text-lg peer-focus:-translate-y-8 peer-focus:text-sm  ${
             getValues(type)
-              ? '-translate-y-8 text-sm text-blue-600'
-              : 'text-zinc-500'
+              ? "-translate-y-8 text-sm text-blue-600"
+              : "text-zinc-500"
           }`}
         >
           {type}
         </label>
       </div>
       {errors && (
-        <div className='flex gap-1 text-red-500 pl-3 -translate-y-5'>
-          <p className='capitalize'>{type}</p>
+        <div className="flex gap-1 text-red-500 pl-3 -translate-y-5">
+          <p className="capitalize">{type}</p>
           is required
         </div>
       )}

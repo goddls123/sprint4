@@ -1,7 +1,6 @@
-import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { useAuthStore } from '@/store/authStore';
-import React, { ComponentType } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useCurrentUser } from "@/hooks/useCurrentUser";
+import React, { ComponentType } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const withUnauthenticated = (Component: ComponentType): React.FC => {
   return () => {
@@ -10,8 +9,8 @@ export const withUnauthenticated = (Component: ComponentType): React.FC => {
     if (!currentUser) {
       return null;
     }
-    if (currentUser !== 'unauthenticated') {
-      navigate('/notes');
+    if (currentUser !== "unauthenticated") {
+      navigate("/notes");
       return null;
     }
     return <Component />;

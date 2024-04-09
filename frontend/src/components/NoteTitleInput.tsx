@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface NoteTitleInputProps {
   title: string;
   onChangeTitle(value: string): void;
@@ -5,13 +7,13 @@ export interface NoteTitleInputProps {
 const NoteTitleInput = ({ title, onChangeTitle }: NoteTitleInputProps) => {
   return (
     <input
-      type='text'
+      type="text"
       value={title}
       onChange={(event) => {
         onChangeTitle(event.target.value);
       }}
-      placeholder='제목 없음'
-      className='focus:outline-none text-4xl font-semibold w-full'
+      placeholder="제목 없음"
+      className="focus:outline-none text-4xl font-semibold w-full"
     />
   );
 };

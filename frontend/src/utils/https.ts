@@ -1,8 +1,8 @@
-import axios, { AxiosRequestConfig } from 'axios';
-import { getToken, removeToken } from '@/store/authStore';
-import camelcaseKeys from 'camelcase-keys';
+import axios, { AxiosRequestConfig } from "axios";
+import { getToken } from "@/store/authStore";
+import camelcaseKeys from "camelcase-keys";
 
-const BASE_URL = 'http://localhost:3031';
+const BASE_URL = "http://localhost:8888";
 const DEFAULT_TIMEOUT = 30000;
 
 export const createClient = (config?: AxiosRequestConfig) => {
@@ -10,8 +10,8 @@ export const createClient = (config?: AxiosRequestConfig) => {
     baseURL: BASE_URL,
     timeout: DEFAULT_TIMEOUT,
     headers: {
-      'content-type': 'application/json',
-      Authorization: getToken() ? getToken() : '',
+      "content-type": "application/json",
+      Authorization: getToken() ? getToken() : "",
     },
     withCredentials: true,
     ...config,
@@ -35,7 +35,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
 export const httpClient = createClient();
 
 //공통 요청 부분
-type RequestMethod = 'get' | 'post' | 'put' | 'delete';
+type RequestMethod = "get" | "post" | "put" | "delete";
 export const requestHandler = async <T>(
   method: RequestMethod,
   url: string,
@@ -44,16 +44,16 @@ export const requestHandler = async <T>(
   let response;
 
   switch (method) {
-    case 'post':
+    case "post":
       response = await httpClient.post(url, payload);
       break;
-    case 'get':
+    case "get":
       response = await httpClient.get(url);
       break;
-    case 'put':
+    case "put":
       response = await httpClient.put(url, payload);
       break;
-    case 'delete':
+    case "delete":
       response = await httpClient.delete(url);
       break;
   }
