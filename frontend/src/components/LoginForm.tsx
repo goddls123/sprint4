@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import InputBoxForm from "./InputBoxForm";
-import React from "react";
 
 import { JoinFormProps } from "./JoinForm";
 export interface LoginProps {

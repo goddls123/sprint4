@@ -3,7 +3,6 @@ import { NotesIndexTemplate } from "./Index.template";
 import { withAuthenticatedUser } from "@/components/hocs/withAuthenticatedUser";
 import { useNavigate } from "react-router-dom";
 import { useNotes } from "@/hooks/useNotes";
-import React from "react";
 import { createNote } from "../../apis/note";
 
 export const NotesIndexPage = withAuthenticatedUser((props) => {

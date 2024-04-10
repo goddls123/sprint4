@@ -1,5 +1,3 @@
-import React from "react";
-
 import { FieldError, UseFormGetValues, UseFormRegister } from "react-hook-form";
 import { JoinFormProps } from "./JoinForm";
 

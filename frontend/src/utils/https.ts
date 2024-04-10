@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { getToken } from "@/store/authStore";
 import camelcaseKeys from "camelcase-keys";
 
-const BASE_URL = "http://localhost:8888";
+const BASE_URL = "http://localhost:3001";
 const DEFAULT_TIMEOUT = 30000;
 
 export const createClient = (config?: AxiosRequestConfig) => {

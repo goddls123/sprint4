@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as MussgImage } from "@/assets/mussg.svg";
-import React from "react";
 
 export const IndexTemplate: React.FC = () => {
   return (

@@ -1,5 +1,4 @@
 import { FaRegTrashCan, FaRegFloppyDisk } from "react-icons/fa6";
-import React from "react";
 
 interface DetailButtonProps {
   types: string;

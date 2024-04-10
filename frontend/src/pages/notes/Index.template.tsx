@@ -1,11 +1,10 @@
 import NoteList from "@/components/NoteList";
-import React from "react";
 import { FaRegSquarePlus, FaUser } from "react-icons/fa6";
 import SidebarButton from "../SidebarButton";
 import { FiLogOut } from "react-icons/fi";
 import { NoteListProps } from "@/apis/note";
 import { Outlet } from "react-router-dom";
-import { Note } from "../../apis/note";
+
 export interface NotesIndexTemplateProps extends NoteListProps {
   currentUserMail: string;
   onClickLogout(): void;

@@ -3,21 +3,31 @@ import NoteTitleInput from "@/components/NoteTitleInput";
 import DetailButton from "./DetailButton";
 import { withCurrentNote } from "@/components/hocs/withCurrentNote";
 import { useEffect, useState } from "react";
-import React from "react";
-import { updateNote } from "../../apis/note";
+import { useUpdateNote } from "../../hooks/useUpdateNote";
+import { useDeleteNote } from "../../hooks/useDeleteNote";
+import { useNavigate } from "react-router";
 const Detail = withCurrentNote(({ currentNote }) => {
   const [title, setTitle] = useState(currentNote.title);
   const [content, setContet] = useState(currentNote.content);
+
+  const { updateNote } = useUpdateNote();
+  const { deleteNote } = useDeleteNote();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTitle(currentNote.title);
     setContet(currentNote.content);
   }, [currentNote]);
   const handleSave = async () => {
-    console.log(title, content);
     await updateNote({ id: currentNote.id, title, content });
-    console.log(currentNote);
     alert("저장되었습니다");
+  };
+  const handleClickDelete = async () => {
+    if (!window.confirm("삭제하시겠습니까?")) {
+      return;
+    }
+    await deleteNote(currentNote.id);
+    navigate("/notes");
   };
   return (
     <div className="flex-grow w-auto h-full">
@@ -26,7 +36,7 @@ const Detail = withCurrentNote(({ currentNote }) => {
 
         <div className="flex items-center gap-4">
           <DetailButton onClick={handleSave} types={"save"} />
-          <DetailButton onClick={handleSave} types={"delete"} />
+          <DetailButton onClick={handleClickDelete} types={"delete"} />
         </div>
       </header>
 

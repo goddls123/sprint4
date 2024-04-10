@@ -1,6 +1,4 @@
 import { NoteListProps } from "@/apis/note";
-import React from "react";
-import { FaRegFileLines } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const NoteList = ({ notes }: NoteListProps) => {

@@ -3,7 +3,6 @@ import { Button, LoginProps } from "./LoginForm";
 import { useJoin } from "@/hooks/useJoin";
 import { useForm } from "react-hook-form";
 import InputBoxForm from "./InputBoxForm";
-import React from "react";
 
 export interface JoinFormProps extends LoginProps {
   checkPassword: string;

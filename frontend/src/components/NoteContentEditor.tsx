@@ -1,7 +1,6 @@
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React from "react";
 import { useEffect, useRef } from "react";
 interface NoteContentEditorProps {
   content: string;

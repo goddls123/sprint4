@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface NoteTitleInputProps {
   title: string;
   onChangeTitle(value: string): void;
