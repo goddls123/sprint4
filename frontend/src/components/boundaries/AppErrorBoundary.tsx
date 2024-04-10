@@ -1,6 +1,3 @@
-import styled from "styled-components";
-import React from "react";
-
 const AppErrorBoundary = () => {
   return (
     <div>
@@ -8,7 +5,5 @@ const AppErrorBoundary = () => {
     </div>
   );
 };
-
-const AppErrorBoundaryStyle = styled.div``;
 
 export default AppErrorBoundary;

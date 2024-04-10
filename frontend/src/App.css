@@ -9,3 +9,13 @@
 :root {
   color: var(--oc-gray-8);
 }
+.confirm-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}

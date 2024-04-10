@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button, LoginProps } from "./LoginForm";
+import { LoginProps } from "./LoginForm";
 import { useJoin } from "@/hooks/useJoin";
 import { useForm } from "react-hook-form";
 import InputBoxForm from "./InputBoxForm";
@@ -9,7 +9,6 @@ export interface JoinFormProps extends LoginProps {
 }
 
 const JoinForm = () => {
-  // const { userJoin } = useJoin();
   const {
     register,
     handleSubmit,
@@ -62,7 +61,7 @@ const JoinForm = () => {
             Passwords do not match
           </p>
         )}
-        <Button>회원가입</Button>
+        <button className="confirm-button">회원가입</button>
         <p className="mt-6 text-center">
           계정이 이미 있으신가요?
           <Link to="/login" className="px-2 text-sky-600 hover:underline">

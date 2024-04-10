@@ -1,6 +1,6 @@
-import { LoginProps } from '@/components/LoginForm';
-import { httpClient } from '@/utils/https';
-import { AxiosError } from 'axios';
+import { LoginProps } from "@/components/LoginForm";
+import { httpClient } from "@/utils/https";
+import { AxiosError } from "axios";
 
 export interface User {
   email: string;
@@ -9,7 +9,7 @@ export interface User {
   userId: number;
 }
 export const fetchCurretUser = async () => {
-  const { data } = await httpClient.get<User>('/users/me');
+  const { data } = await httpClient.get<User>("/users/me");
 
   return data;
 };
@@ -18,7 +18,7 @@ interface LoginResponse {
   token: string;
 }
 export const requestLogin = async (data: LoginProps) => {
-  const response = await httpClient.post<LoginResponse>('/login', data);
+  const response = await httpClient.post<LoginResponse>("/login", data);
 
   return response.data;
 };
@@ -26,12 +26,12 @@ interface LogoutResponse {
   message: string;
 }
 export const requestLogout = async () => {
-  const response = await httpClient.post<LogoutResponse>('/logout');
+  const { data } = await httpClient.post<LogoutResponse>("/logout");
 
-  return response.data;
+  return data;
 };
 export const requestJoin = async (data: LoginProps) => {
-  const response = await httpClient.post('/users', data);
+  const response = await httpClient.post("/users", data);
 
   return response.data;
 };

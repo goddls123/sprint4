@@ -1,7 +1,6 @@
 import { useLogin } from "@/hooks/useLogin";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import InputBoxForm from "./InputBoxForm";
 
 import { JoinFormProps } from "./JoinForm";
@@ -57,7 +56,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <Button>로그인</Button>
+        <button className="confirm-button">로그인</button>
         <p className="mt-6 text-center">
           계정이 없으신가요?
           <Link to="/join" className="px-2 text-sky-600 hover:underline">
@@ -68,16 +67,5 @@ const LoginForm = () => {
     </>
   );
 };
-
-export const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-`;
 
 export default LoginForm;

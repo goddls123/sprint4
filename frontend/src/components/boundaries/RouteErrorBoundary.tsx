@@ -1,6 +1,3 @@
-import styled from "styled-components";
-import React from "react";
-
 const RouteErrorBoundary = () => {
   return (
     <div>
@@ -8,7 +5,5 @@ const RouteErrorBoundary = () => {
     </div>
   );
 };
-
-const RouteErrorBoundaryStyle = styled.div``;
 
 export default RouteErrorBoundary;
