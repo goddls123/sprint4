@@ -1,10 +1,19 @@
-import { renderWithRouter } from "@/utils/renderWithRouter";
 import InputBoxForm from "./InputBoxForm";
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
+const getValues = jest.fn();
+const register = jest.fn();
 describe("InputBoxForm", () => {
   test("렌더 확인", () => {
-    // renderWithRouter(<InputBoxForm type="email" />);
-    // expect(screen.getByLabelText("email")).toBeInTheDocument();
+    render(
+      <InputBoxForm type="email" getValues={getValues} register={register} />
+    );
+    expect(screen.getByLabelText("email")).toBeInTheDocument();
+  });
+  test("errors", () => {
+    render(
+      <InputBoxForm type="email" getValues={getValues} register={register} />
+    );
+    expect(screen.getByLabelText("email")).toBeInTheDocument();
   });
 });

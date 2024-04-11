@@ -1,12 +1,13 @@
 import { FieldError, UseFormGetValues, UseFormRegister } from "react-hook-form";
 import { JoinFormProps } from "./JoinForm";
+import React, { ForwardedRef } from "react";
 
 type Input = "email" | "password" | "checkPassword";
 interface Props {
   type: Input;
   register: UseFormRegister<JoinFormProps>;
   getValues: UseFormGetValues<JoinFormProps>;
-  errors: FieldError | undefined;
+  errors?: FieldError | undefined;
 }
 const InputBoxForm = ({ type, register, getValues, errors }: Props) => {
   return (

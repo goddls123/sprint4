@@ -1,14 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LoginProps } from "./LoginForm";
-import { useJoin } from "@/hooks/useJoin";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import InputBoxForm from "./InputBoxForm";
 
 export interface JoinFormProps extends LoginProps {
   checkPassword: string;
 }
-
-const JoinForm = () => {
+interface Props {
+  onSubmit: SubmitHandler<JoinFormProps>;
+}
+const JoinForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -16,17 +17,7 @@ const JoinForm = () => {
     getValues,
     watch,
   } = useForm<JoinFormProps>();
-  const { join } = useJoin();
-  const navigate = useNavigate();
-  const onSubmit = async (data: LoginProps) => {
-    const { result, message } = await join(data);
-    if (result === "unauthorized") {
-      return alert(message);
-    } else if (result === "success") {
-      alert("회원가입에 성공하였습니다.");
-      return navigate("/login");
-    }
-  };
+
   watch(["email", "password", "checkPassword"]);
   return (
     <>
@@ -61,7 +52,9 @@ const JoinForm = () => {
             Passwords do not match
           </p>
         )}
-        <button className="confirm-button">회원가입</button>
+        <button type="submit" className="confirm-button">
+          회원가입
+        </button>
         <p className="mt-6 text-center">
           계정이 이미 있으신가요?
           <Link to="/login" className="px-2 text-sky-600 hover:underline">
